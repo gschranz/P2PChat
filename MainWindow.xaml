@@ -1,0 +1,34 @@
+﻿<Window x:Class="P2PChat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gnrlns="clr-namespace:P2PChat"
+        xmlns:clientns="clr-namespace:P2PChat.ViewModels"
+        mc:Ignorable="d"
+        Title="P2PChat" Height="350" Width="525">        
+        <Window.Resources>
+            <clientns:ClientVM x:Key="clientVM"/>
+        </Window.Resources> 
+    <Grid DataContext="{StaticResource clientVM}">
+        <StackPanel>
+            <DockPanel>
+                <TextBlock Text="IPAddress" Padding="20, 0, 20, 0"/>
+                <TextBox x:Name="ipAddress" Width="200" Text="{Binding currentIp, Mode=TwoWay}"/>
+                <Button HorizontalAlignment="Right" Content="Connect directly!" Command="{Binding dirConnect}"/>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="Port" Padding="20, 0, 20, 0"/>
+                <TextBox x:Name="port" Text="{Binding currentPort, Mode=TwoWay}"/>
+            </DockPanel>
+            <Button HorizontalAlignment="Center">
+                Discover all on port.
+            </Button>
+        </StackPanel>
+        <ListBox Visibility="Collapsed" HorizontalAlignment="Left" ItemsSource="{Binding DiscoveredClients}">
+            <DataTemplate>
+                
+            </DataTemplate>
+        </ListBox>
+    </Grid>
+</Window>
