@@ -14,21 +14,52 @@
         <StackPanel>
             <DockPanel>
                 <TextBlock Text="IPAddress" Padding="20, 0, 20, 0"/>
-                <TextBox x:Name="ipAddress" Width="200" Text="{Binding currentIp, Mode=TwoWay}"/>
-                <Button HorizontalAlignment="Right" Content="Connect directly!" Command="{Binding dirConnect}"/>
+                <TextBox x:Name="ipAddress" Width="200" Text="{Binding CurrentIp, Mode=TwoWay}"/>
+                <Button HorizontalAlignment="Right" Content="Connect directly to address and port!" Command="{Binding DirConnect}"/>
             </DockPanel>
             <DockPanel>
                 <TextBlock Text="Port" Padding="20, 0, 20, 0"/>
-                <TextBox x:Name="port" Text="{Binding currentPort, Mode=TwoWay}"/>
+                <TextBox x:Name="port" Text="{Binding CurrentPort, Mode=TwoWay}"/>
             </DockPanel>
-            <Button HorizontalAlignment="Center">
-                Discover all on port.
+            <Button HorizontalAlignment="Center" Command="{Binding BroadCast}">
+                Broadcast to all clients on selected port.
             </Button>
+            <Polygon Height="20" Fill="AliceBlue"/>
+            <ListView ItemsSource="{Binding DiscoveredClients}" >
+                <ListView.View>
+                    <GridView AllowsColumnReorder="True">
+                        <GridViewColumn Header="PCName">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding PCName}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="IPAddress">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding IpAddress}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Port">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Port}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding Connect}">Connect</Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </StackPanel>
-        <ListBox Visibility="Collapsed" HorizontalAlignment="Left" ItemsSource="{Binding DiscoveredClients}">
-            <DataTemplate>
-                
-            </DataTemplate>
-        </ListBox>
+        
     </Grid>
 </Window>

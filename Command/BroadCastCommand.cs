@@ -8,13 +8,13 @@ using System.Windows.Input;
 
 namespace P2PChat.Command
 {
-    public class DirectConnectCommand : ICommand
+    public class BroadCastCommand : ICommand
     {
         private ClientVM obj;
 
         public event EventHandler CanExecuteChanged;
 
-        public DirectConnectCommand(ClientVM obj)
+        public BroadCastCommand(ClientVM obj)
         {
             this.obj = obj;
         }
@@ -26,7 +26,7 @@ namespace P2PChat.Command
 
         public void Execute(object parameter)
         {
-            obj.DirectConnect();
+            obj.SendBroadCast();
         }
     }
 }

@@ -54,20 +54,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\BroadCastCommand.cs" />
+    <Compile Include="Command\ConnectCommand.cs" />
+    <Compile Include="Surrogates\ChatPartnerSerializationSurrogate.cs" />
     <Compile Include="ChatWindow.xaml.cs">
       <DependentUpon>ChatWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Command\DirectConnectCommand.cs" />
-    <Compile Include="Message.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Client.cs" />
-    <Compile Include="MyFormatter.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="Models\ChatPartner.cs" />
     <Compile Include="ViewModels\ChatPartnerVM.cs" />
     <Compile Include="ViewModels\ChatVM.cs" />
     <Compile Include="ViewModels\ClientVM.cs" />
-    <Compile Include="MessageSerializationSurrogate.cs" />
+    <Compile Include="Surrogates\MessageSerializationSurrogate.cs" />
     <Compile Include="ICryptor.cs" />
+    <Compile Include="UDPDataReceivedEventArgs.cs" />
     <Page Include="ChatWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,4 +1,5 @@
 ﻿using P2PChat.Models;
+using P2PChat.Surrogates;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

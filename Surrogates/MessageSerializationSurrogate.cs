@@ -1,6 +1,7 @@
 ﻿using System.Runtime.Serialization;
+using P2PChat.Models;
 
-namespace P2PChat.ViewModels
+namespace P2PChat.Surrogates
 {
     internal class MessageSerializationSurrogate : ISerializationSurrogate
     {

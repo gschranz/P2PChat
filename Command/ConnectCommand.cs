@@ -8,13 +8,13 @@ using System.Windows.Input;
 
 namespace P2PChat.Command
 {
-    public class DirectConnectCommand : ICommand
+    class ConnectCommand : ICommand
     {
-        private ClientVM obj;
+        private ChatPartnerVM obj;
 
         public event EventHandler CanExecuteChanged;
-
-        public DirectConnectCommand(ClientVM obj)
+        
+        public ConnectCommand(ChatPartnerVM obj)
         {
             this.obj = obj;
         }
@@ -26,7 +26,7 @@ namespace P2PChat.Command
 
         public void Execute(object parameter)
         {
-            obj.DirectConnect();
+            obj.FireConnect();
         }
     }
 }
